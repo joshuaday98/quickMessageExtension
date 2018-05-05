@@ -12,5 +12,8 @@
         "contentScripts/content.js"
       ]
     }
-  ]
+  ],
+  "browser_action": {
+      "default_icon" : "resources/_Graphic/icon.png"
+  }
 }
