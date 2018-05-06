@@ -2,14 +2,10 @@ const quickMessage = {
      postObserverCallback: function(mutationsArr){
 
         for(var mutation of mutationsArr){
-            const postsContainer = mutation.addedNodes;
-              console.log(postsContainer);
-
-            $.each(postsContainer, function(i){
-              if (postsContainer[i]. = "^4ikz"){
-                console.log(postsContainer[i])
-              }
-            });
+            let postsContainer = $(mutation.addedNodes[0]);
+            console.log(postsContainer)
+            postsContainer = postsContainer.find('div[id^="u_fetchstream"]');
+            console.log(postsContainer)
         }
      },
      postObserver: function(){
