@@ -7,8 +7,7 @@ function postObserverCallback(mutationsArr){
     if(mutation.type == "childList"){
       let newPosts = qm.getNewPosts()
 
-      qm.updatePostsArrs = newPosts;
-      qm.addMsgButtons = newPosts;
+      qm.addMsgButtons(newPosts);
     }
   }
 }

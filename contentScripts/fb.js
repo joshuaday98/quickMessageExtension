@@ -3,16 +3,14 @@
 class quickMessage {
 
   constructor(){
-    this.postSelector = 'div[id^="hyperfeed_story_id_"]';
+    this.postSelector = '._5jmm';//'div[id^="hyperfeed_story_id_"]';
     this.postArrTotal = $(this.postSelector);
-    this.newPosts = [];
 
     this.addStyles();
   }
 
   set updatePostsArrs(newPosts){
     this.postArrTotal.push(newPosts);
-    this.newPosts = newPosts;
   }
 
   get getPostsArr(){
@@ -52,13 +50,16 @@ class quickMessage {
   getNewPosts(){
     let newPosts = [];
     const currentPosts = $(this.getSelector);
+    console.log(currentPosts)
 
     for(let post of currentPosts){
-      if(!$.inArray(post, this.getPostArr)){
-        newPosts.push(post);
+      if($.inArray(post, this.getPostsArr) !== 0){
+        if($(post).find('.qmBtn').length == 0){
+          newPosts.push(post);
+        }
       }
     }
-
+    this.updatePostsArrs = newPosts
     return newPosts;
   }
 
