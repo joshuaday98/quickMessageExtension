@@ -50,7 +50,6 @@ class quickMessage {
   getNewPosts(){
     let newPosts = [];
     const currentPosts = $(this.getSelector);
-    console.log(currentPosts)
 
     for(let post of currentPosts){
       if($.inArray(post, this.getPostsArr) !== 0){
@@ -59,7 +58,8 @@ class quickMessage {
         }
       }
     }
-    this.updatePostsArrs = newPosts
+    this.updatePostsArrs = newPosts;
+
     return newPosts;
   }
 
