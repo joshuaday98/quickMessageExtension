@@ -1,5 +1,3 @@
 'use strict';
 
-import fbQuickMessage from "fb";
-
-
+quickMessage.postObserver();
