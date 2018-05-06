@@ -1,18 +1,29 @@
-const quickMessage = {
-     postObserverCallback: function(mutationsArr){
+/*jshint esversion: 6 */
 
-        for(var mutation of mutationsArr){
-            let postsContainer = $(mutation.addedNodes[0]);
-            console.log(postsContainer)
-            postsContainer = postsContainer.find('div[id^="u_fetchstream"]');
-            console.log(postsContainer)
-        }
-     },
-     postObserver: function(){
-        const targetNode = $("#contentArea div[id^='topnews_main_stream_'] div[id^='more_pager_pagelet'] > div")[0];
-        const config = {childList: true};
+class quickMessage {
+  constructor(){
+    this.postSelector = 'div[id^="hyperfeed_story_id_"]';
+    this.postArr = $(this.postSelector);
+    this.newPosts = [];
+  }
 
-        const observer = new MutationObserver(this.postObserverCallback);
-        observer.observe(targetNode, config);
-    }
+  set setNewPosts(newPosts){
+    this.newPosts = newPosts;
+  }
+
+  get getPostsArr(){
+    return this.postArr;
+  }
+
+  get getSelector(){
+    return this.postSelector;
+  }
+
+  postObserver(callback){
+    const targetNode = $("#contentArea div[id^='topnews_main_stream_'] div[id^='more_pager_pagelet'] > div")[0];
+    const config = {childList: true};
+
+    const observer = new MutationObserver(callback);
+    observer.observe(targetNode, config);
+  }
 }
