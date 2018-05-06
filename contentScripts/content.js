@@ -7,11 +7,14 @@ function postObserverCallback(mutationsArr){
     if(mutation.type == "childList"){
       let newPosts = qm.getNewPosts()
 
-      qm.updatePosts = newPosts;
-
-      for(let post of )
+      qm.updatePostsArrs = newPosts;
+      qm.addMsgButtons = newPosts;
     }
   }
 }
 
-qm.postObserver(postObserverCallback);
+(function init(){
+  qm.postObserver(postObserverCallback);
+
+  qm.addMsgButtons(qm.getPostsArr);
+})();

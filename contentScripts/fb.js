@@ -23,11 +23,22 @@ class quickMessage {
     return this.postSelector;
   }
 
+  addMsgButtons(postArr){
+    for(let post of postArr){
+      const btnDict = this.buildMsgBtn(post);
+      btnDict.btnParent.append(btnDict.newBtn);
+    }
+  }
 
+  buildMsgBtn(post){
+    const likeBtn = $(post).find('._1mto')[0];
 
-  buildMessageBtn(){
-    const buttonTemplate = $(this).find('._1mto')[0].clone();
-    buttonTemplate.addClass("qmBtn");
+    const btnParent = $(likeBtn).parent();
+    const newBtn = $(likeBtn).clone();
+    newBtn.addClass("qmBtn");
+    newBtn.find('a').text("Message");
+
+    return {btnParent:btnParent,newBtn:newBtn};
   }
 
   postObserver(callback){
@@ -52,6 +63,6 @@ class quickMessage {
   }
 
   addStyles(){
-    $('head').append('<style>._1mto.qmBtn a{background-position: -19px -211px;}</style>')
+    $('head').append('<style>._1mto.qmBtn a:before{background-position: -19px -211px !important;}</style>')
   }
 }
