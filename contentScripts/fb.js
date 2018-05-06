@@ -34,7 +34,12 @@ class quickMessage {
     const btnParent = $(likeBtn).parent();
     const newBtn = $(likeBtn).clone();
     newBtn.addClass("qmBtn");
-    newBtn.find('a').text("Message");
+      
+    const msgHref = btnParent.find('._ohe').attr('href');
+      console.log(msgHref)
+    msgHref.substring(26, msgHref.length - 7)
+    console.log(msgHref)
+    newBtn.find('a').text("Message").attr('href', '');
 
     return {btnParent:btnParent,newBtn:newBtn};
   }
