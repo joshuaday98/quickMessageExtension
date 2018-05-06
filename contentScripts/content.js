@@ -5,23 +5,13 @@ const qm = new quickMessage()
 function postObserverCallback(mutationsArr){
   for(var mutation of mutationsArr){
     if(mutation.type == "childList"){
-      var newPosts = [];
-      const postArrCurrent = $(qm.getSelector);
+      let newPosts = qm.getNewPosts()
 
-      for(var post of postArrCurrent){
-        if(!$.inArray(post, qm.getPostArr){
-          newPosts.push(post);
-        }
-      }
+      qm.updatePosts = newPosts;
 
-      qm.postArr = qm.addPostsToChange(newPosts);
-      qm.setNewPosts = newPosts;
+      for(let post of )
     }
   }
 }
 
-
-(function init(){
-  qm.postObserver(postObserverCallback);
-  qm.consolelog();
-})();
+qm.postObserver(postObserverCallback);

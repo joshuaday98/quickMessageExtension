@@ -16,5 +16,6 @@
   ],
   "browser_action": {
       "default_icon" : "resources/_Graphic/icon.png"
-  }
+  },
+  "description": "This is a simple app created to add a quick messaging button to all facebook posts. You can quickly message the friend that posted the aggressive post about you; Jennifer."
 }
